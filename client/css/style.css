@@ -70,6 +70,20 @@ body {
 	background-image: url('scribbles2.png');
 }
 
+.add-card {
+	display: inline-block;
+  width: 2.5em;
+  height: 1.3em;
+	opacity: .6;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-origin:content-box
+}
+
+#pink-card {
+	background-image: url('../images/pink-card.png');
+}
+
 
 
 .hover .content {

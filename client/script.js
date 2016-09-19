@@ -374,6 +374,7 @@ function randomCardColour() {
 
 
 function initCards(cardArray) {
+
     //first delete any cards that exist
     $('.card').remove();
 
@@ -676,6 +677,18 @@ function adjustCard(offsets, doSync) {
     });
 }
 
+
+function createNewCard(colour) {
+    var rotation = Math.random() * 10 - 5; //add a bit of random rotation (+/- 10deg)
+    uniqueID = Math.round(Math.random() * 99999999); //is this big enough to assure uniqueness?
+    //alert(uniqueID);
+    createCard(
+        'card' + uniqueID,
+        '',
+        58, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
+        rotation,
+        colour);
+}
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
 
@@ -703,6 +716,11 @@ $(function() {
                 58, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
                 rotation,
                 randomCardColour());
+        });
+
+     $("#create-pink-card")
+        .click(function() {
+            createNewCard('pink');
         });
 
 
