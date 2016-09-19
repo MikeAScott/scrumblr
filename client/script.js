@@ -685,7 +685,7 @@ function createNewCard(colour) {
     createCard(
         'card' + uniqueID,
         '',
-        58, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
+        250, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
         rotation,
         colour);
 }
@@ -707,20 +707,29 @@ $(function() {
 
     $("#create-card")
         .click(function() {
-            var rotation = Math.random() * 10 - 5; //add a bit of random rotation (+/- 10deg)
-            uniqueID = Math.round(Math.random() * 99999999); //is this big enough to assure uniqueness?
-            //alert(uniqueID);
-            createCard(
-                'card' + uniqueID,
-                '',
-                58, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
-                rotation,
-                randomCardColour());
+            createNewCard(randomCardColour());
         });
 
      $("#create-pink-card")
         .click(function() {
             createNewCard('pink');
+        });
+
+     $("#create-blue-card")
+        .click(function() {
+            createNewCard('blue');
+        });
+     $("#create-yellow-card")
+        .click(function() {
+            createNewCard('yellow');
+        });
+     $("#create-green-card")
+        .click(function() {
+            createNewCard('green');
+        });
+     $("#create-white-card")
+        .click(function() {
+            createNewCard('white');
         });
 
 
