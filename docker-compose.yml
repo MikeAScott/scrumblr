@@ -1,0 +1,17 @@
+version: '2'
+services:
+  app:
+    build: .
+    depends_on:
+      - redis
+    command: npm start -- --port 80 --redis redis:6379
+    ports:
+      - "8088:80"
+  redis:
+    image: redis
+    volumes:
+      - redis_data:/var/lib/redis
+
+volumes:
+  redis_data:
+    driver: local

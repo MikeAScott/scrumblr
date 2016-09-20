@@ -80,12 +80,6 @@ body {
 	background-origin:content-box
 }
 
-#pink-card {
-	background-image: url('../images/pink-card.png');
-}
-
-
-
 .hover .content {
 	xborder: solid rgba(92, 157, 181,0.5) 3px;
 }
