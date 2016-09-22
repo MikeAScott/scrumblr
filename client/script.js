@@ -4,7 +4,6 @@ var columns = [];
 var currentTheme = "bigcards";
 var boardInitialized = false;
 var keyTrap = null;
-var cardColours = ['pink', 'blue', 'green', 'yellow', 'white'];
 
 var baseurl = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
 var socket = io.connect({path: baseurl + "/socket.io"});
@@ -685,7 +684,7 @@ function createNewCard(colour) {
     createCard(
         'card' + uniqueID,
         '',
-        250, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
+        260, $('div.board-outline').height(), // hack - not a great way to get the new card coordinates, but most consistant ATM
         rotation,
         colour);
 }
@@ -704,35 +703,16 @@ $(function() {
 
     //setTimeout($.unblockUI, 2000);
 
+    $(".create-card")
+        .click(function() {
+            var colour = $(this).attr('id').split('-')[1]
+            createNewCard(colour);
+        });
 
     $("#create-card")
         .click(function() {
             createNewCard(randomCardColour());
         });
-
-     $("#create-pink-card")
-        .click(function() {
-            createNewCard('pink');
-        });
-
-     $("#create-blue-card")
-        .click(function() {
-            createNewCard('blue');
-        });
-     $("#create-yellow-card")
-        .click(function() {
-            createNewCard('yellow');
-        });
-     $("#create-green-card")
-        .click(function() {
-            createNewCard('green');
-        });
-     $("#create-white-card")
-        .click(function() {
-            createNewCard('white');
-        });
-
-
 
     // Style changer
     $("#smallify").click(function() {
