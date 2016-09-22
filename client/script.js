@@ -4,6 +4,7 @@ var columns = [];
 var currentTheme = "bigcards";
 var boardInitialized = false;
 var keyTrap = null;
+var cardColours = ['pink', 'blue', 'green', 'yellow', 'white'];
 
 var baseurl = location.pathname.substring(0, location.pathname.lastIndexOf('/'));
 var socket = io.connect({path: baseurl + "/socket.io"});
@@ -365,11 +366,10 @@ function createCard(id, text, x, y, rot, colour) {
 }
 
 function randomCardColour() {
-    var colours = ['yellow', 'green', 'blue', 'white', 'pink'];
 
-    var i = Math.floor(Math.random() * colours.length);
+    var i = Math.floor(Math.random() * cardColours.length);
 
-    return colours[i];
+    return cardColours[i];
 }
 
 

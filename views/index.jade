@@ -22,19 +22,11 @@ block body
 						image#add-col.col-icon(width='20', height='20', src='images/icons/iconic/raster/black/plus_alt_32x32.png')
 						image#delete-col.col-icon(width='20', height='20', src='images/icons/iconic/raster/black/minus_alt_32x32.png')
 
-
 	div.buttons
 		i#create-card.fa.fa-plus-circle.fa-2x.bottom-icon
-		div#create-pink-card.add-card.bottom-icon
-			image(width='100%', height='100%', src='images/pink-card.png')
-		div#create-green-card.add-card.bottom-icon
-			image(width='100%', height='100%', src='images/green-card.png')
-		div#create-blue-card.add-card.bottom-icon
-			image(width='100%', height='100%', src='images/blue-card.png')
-		div#create-yellow-card.add-card.bottom-icon
-			image(width='100%', height='100%', src='images/yellow-card.png')
-		div#create-white-card.add-card.bottom-icon
-			image(width='100%', height='100%', src='images/white-card.png')
+		each colour in ['pink', 'blue', 'green', 'yellow', 'white']
+			div(id='create-#{colour}-card').add-card.bottom-icon
+				image(width='100%', height='100%', src='images/#{colour}-card.png')
 		i#smallify.fa.fa-expand.fa-2x.bottom-icon
 	
 
@@ -61,7 +53,11 @@ block body
 		//	image(src="/images/stickers/sticker-silverstar.png")
 		//div.sticker#sticker-redstar
 		//	image(src="/images/stickers/sticker-redstar.png")
-
+		br
+		div.sticker#sticker-gold
+		div.sticker#sticker-bluestar
+		div.sticker#sticker-silverstar
+		div.sticker#sticker-redstar
 
 	div.names
 		p connected:
